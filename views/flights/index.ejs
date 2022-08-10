@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Flight No.</th>
+        <th>Departs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% allFlights.forEach(function(flight) { 
+        let todayDate = new Date()
+        let flightDate = flight.departs
+        if (todayDate > flightDate) {
+        
+    %>
+    <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.flightNo %></td>
+        <td>
+            <%= flight.departs %>
+        </td>
+        <td><a href="/flights/<%= flight._id %>">Details</a></td>
+    </tr>
+<% } else { %>
+    <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.flightNo %></td>
+        <td>
+            <%= flight.departs %>
+        </td>
+        <td><a href="/flights/<%= flight._id %>">Details</a></td>
+    </tr>
+<% }}); %>
+      
+
+	   
+	 
+        <tr>
+
+        </tr>
+
+
+    </tbody>
+  </table>
+    
+</body>
+</html>

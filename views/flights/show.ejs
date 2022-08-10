@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Airline: </div>
+    <div><%= flightDocument.airline %></div>
+    <div>Airport: </div>
+    <div><%= flightDocument.airport %></div>
+    <div>Flight No: </div>
+    <div><%= flightDocument.flightNo %></div>
+    <div>Departs: </div>
+</section>
+<br><br><h2>Destinations</h2>
+<form id="add-destination-form" method="POST" action="/flights/<%= flightDocument._id %>/destinations">
+    <select name="airport" id="select-destination">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="DEN">DEN</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+    </select>
+    <label>Arrival Time: 
+        <input type="datetime-local" name="arrival">
+    </label><br>
+    <input type="submit" class="btn btn-success" id="destination-btn" value="Add Destination">
+</form>     
+
+
+<h2> Tickets </h2>
+    <thead>
+        <th>
+            Seat
+        </th>
+        <th>
+            Price
+        </th>
+    </thead>
+
+</table>
+<a href="/flights/<%= flightDocument._id %>/tickets/new" id="new-ticket-btn" class="btn btn-primary btn-lg btn-block">Create a new ticket</a>
+  
+    <%- include('../partials/footer') %>
